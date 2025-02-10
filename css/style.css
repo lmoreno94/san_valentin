@@ -1,0 +1,193 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    background-color: #ff6f91;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* Aplicar animación al corazón */
+.card h1 span.heart {
+    display: inline-block;
+    color: #ff4b5c;
+    animation: heartbeat 1.5s infinite;
+}
+
+.card {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid #e0e0e0;
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    height: auto;
+    text-align: center;
+    color: #333;
+    animation: float 2s infinite ease-in-out;
+}
+
+/* Evitar que la tarjeta cambie de tamaño */
+.card p,
+.card h1 {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.card h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ff4b5c;
+}
+
+.card p {
+    font-size: 1.4em;
+    font-family: "Dancing Script", "Courier New", Courier, monospace;
+    margin-bottom: 1.5em;
+}
+
+.buttons p {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+}
+
+/* Estilo de los botones con iconos */
+.buttons button {
+    font-size: 1em;
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+#yesButton {
+    background-color: #ff4b5c;
+    color: #fff;
+}
+
+#noButton {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Canvas para corazones */
+#heartCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+/* Canvas para fuegos artificiales */
+#fireworksCanvasWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* Animación de la carta flotante */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(-5px);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+/* Animación de latido */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.2);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 20px;
+        max-width: 90%;
+        width: auto;
+        font-size: 0.9em;
+    }
+
+    .card h1 {
+        font-size: 1.8em;
+    }
+
+    .card p {
+        font-size: 1em;
+    }
+
+    .buttons button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .card h1 {
+        font-size: 1.5em;
+    }
+
+    .buttons button {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+}
